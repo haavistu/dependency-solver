@@ -24,8 +24,8 @@ function solve(g) {
 
     while(queue.length > 0) {
         // Extract front of queue and add it to topological order
-        let u = queue.pop();
-        topOrder.push(u);
+        let u = queue.shift();
+        topOrder.unshift(u);
 
         // Iterate through dependant nodes of popped node
         // and decrease their in-degree by 1
@@ -33,7 +33,7 @@ function solve(g) {
             inDegree[value]--;
             // If in-degree is 0, add it to queue
             if(inDegree[value] == 0) {
-                queue.push(value);
+                queue.unshift(value);
             }
         }
 

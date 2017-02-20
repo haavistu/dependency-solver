@@ -11,7 +11,7 @@ describe('solve()', function() {
             'task_5': ['task_4', 'task_1', 'task_3', 'task_2'],
         }
 
-        let solved = ['task_5', 'task_4', 'task_3', 'task_2', 'task_1'];
+        let solved = ['task_1', 'task_2', 'task_3', 'task_4', 'task_5'];
 
         assert.deepEqual(solve(graph), solved);
     });
