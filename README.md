@@ -1,8 +1,6 @@
 # Dependency Solver
 
-A tiny dependency solver using topological sorting. Returns a list of nodes where no node comes before it's dependencies. Detects circular dependencies.
-
-![dep-solver](https://cloud.githubusercontent.com/assets/25879989/23119012/16dce47a-f75f-11e6-9ae3-98a497ffe0d0.png)
+A tiny dependency solver using topological sorting. Returns a list of nodes where no node comes before it's dependencies.
 
 ## Usage
 
