@@ -8,7 +8,7 @@ A tiny dependency solver using topological sorting. Returns a list of nodes wher
 
 ## Usage
 
-Nodes can be in any order. Any valid property name is a valid node. Circular dependencies throws an error.
+Nodes can be in any order. Any valid property name is a valid node. Circular dependencies throw an error.
 
 ```javascript
 var solve = require('dependency-solver').solve;
