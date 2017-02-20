@@ -2,7 +2,7 @@
 
 A tiny dependency solver using topological sorting. Returns a list of nodes where no node comes before it's dependencies.  
 
-![dep-solver](https://cloud.githubusercontent.com/assets/25879989/23125100/d6357012-f778-11e6-8318-0a04892f54be.png)
+![dep-solver](https://cloud.githubusercontent.com/assets/25879989/23125249/7cd12be6-f779-11e6-87c2-721baa84402d.png)
 
 ## Usage
 
