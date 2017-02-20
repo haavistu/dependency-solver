@@ -1,6 +1,8 @@
 # Dependency Solver
 
-A tiny dependency solver using topological sorting. Returns a list of nodes where no node comes before it's dependencies.
+A tiny dependency solver using topological sorting. Returns a list of nodes where no node comes before it's dependencies.  
+
+![dep-solver](https://cloud.githubusercontent.com/assets/25879989/23125100/d6357012-f778-11e6-8318-0a04892f54be.png)
 
 ## Usage
 
@@ -8,13 +10,14 @@ A tiny dependency solver using topological sorting. Returns a list of nodes wher
 var solve = require('dependency-solver').solve;
 
 var graph = {
-    'A': ['B', 'C'],
-    'B': ['C', 'D']
+    'A': ['B', 'C', 'F'],
+    'B': ['C', 'D'],
+    'C': ['D', 'E'],
+    'F': ['E']
 }
 
 solve(graph);
-// -> [ 'C', 'D', 'B', 'A' ]
-
+// -> [ 'D', 'E', 'C', 'B', 'F', 'A' ]
 ```
 
 ## License
