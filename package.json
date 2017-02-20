@@ -1,0 +1,31 @@
+{
+  "name": "dependency-solver",
+  "version": "1.0.0",
+  "description": "A tiny dependency solver using topological sorting",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haavistu/dependency-solver.git"
+  },
+  "keywords": [
+    "dependency",
+    "denepdency-solver",
+    "dependency-parser",
+    "topological",
+    "topological-sort",
+    "kahn"
+  ],
+  "author": "Elis Haavistu <elishaavistu@gmail.com> (https://github.com/haavistu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haavistu/dependency-solver/issues"
+  },
+  "homepage": "https://github.com/haavistu/dependency-solver#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
