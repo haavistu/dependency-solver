@@ -1,8 +1,10 @@
-module.exports.solve       = solve;
-module.exports.getInDegree = getInDegree;
-module.exports.getEdges    = getEdges;
+module.exports.solve          = solve;
+module.exports.getInDegree    = getInDegree;
+module.exports.getEdges       = getEdges;
+module.exports.addMissingKeys = addMissingKeys;
 
-function solve(graph) {
+function solve(g) {
+    let graph    = addMissingKeys(g);
     let edges    = getEdges(graph);
     let inDegree = getInDegree(graph, edges);
 
@@ -73,4 +75,17 @@ function getEdges(graph) {
         }
     }
     return edges;
+}
+
+function addMissingKeys(graph) {
+    // Add all the missing keys to the graph as nodes with no in-degrees
+    for(let key in graph) {
+        for(let [index, value] of graph[key].entries()) {
+            if(graph[value] === undefined) {
+                graph[value] = [];
+            }
+        }
+    }
+
+    return graph;
 }
