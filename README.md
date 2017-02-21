@@ -30,10 +30,22 @@ You can also compute how many nodes depend on a particular node and dependency l
 var { getEdges, getInDegree } = require('dependency-solver');
 
 getInDegree(graph);
-// -> { 'B': 1, 'A': 0, 'C': 2, 'F': 1, 'D': 2, 'E': 2 }
+// -> { 'B': 1, 
+//      'A': 0, 
+//      'C': 2, 
+//      'F': 1, 
+//      'D': 2, 
+//      'E': 2 }
 
 getEdges(graph);
-// -> [ [ 'A', 'B' ], [ 'A', 'C' ], [ 'A', 'F' ], [ 'B', 'C' ], [ 'B', 'D' ], [ 'F', 'E' ], [ 'C', 'D' ], [ 'C', 'E' ] ]
+// -> [ [ 'A', 'B' ],
+//      [ 'A', 'C' ],
+//      [ 'A', 'F' ],
+//      [ 'B', 'C' ],
+//      [ 'B', 'D' ],
+//      [ 'F', 'E' ],
+//      [ 'C', 'D' ],
+//      [ 'C', 'E' ] ]
 ```
 
 ## License
