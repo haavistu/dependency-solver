@@ -29,13 +29,6 @@ You can also compute how many nodes depend on a particular node and dependency l
 ```javascript
 var { getEdges, getInDegree } = require('dependency-solver');
 
-var graph = {
-    'A': ['B', 'C', 'F'],
-    'B': ['C', 'D'],
-    'F': ['E'],
-    'C': ['D', 'E']
-}
-
 getInDegree(graph);
 // -> { 'B': 1, 'A': 0, 'C': 2, 'F': 1, 'D': 2, 'E': 2 }
 
