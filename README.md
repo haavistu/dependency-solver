@@ -29,7 +29,7 @@ You can also compute how many nodes depend on a particular node and dependency l
 ```javascript
 var { getEdges, getInDegree } = require('dependency-solver');
 
-getInDegree(graph);
+getDependedBy(graph);
 // -> { 'B': 1, 
 //      'A': 0, 
 //      'C': 2, 
@@ -37,7 +37,7 @@ getInDegree(graph);
 //      'D': 2, 
 //      'E': 2 }
 
-getEdges(graph);
+getDependencyLines(graph);
 // -> [ [ 'A', 'B' ],
 //      [ 'A', 'C' ],
 //      [ 'A', 'F' ],
