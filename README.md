@@ -27,7 +27,7 @@ solve(graph);
 You can also compute how many nodes depend on a particular node and dependency lines between nodes.
 
 ```javascript
-var { getEdges, getInDegree } = require('dependency-solver');
+var { getDependedBy, getDependencyLines } = require('dependency-solver');
 
 getDependedBy(graph);
 // -> { 'B': 1, 
