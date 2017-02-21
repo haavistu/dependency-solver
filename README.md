@@ -11,17 +11,36 @@ A tiny dependency solver using topological sorting. Returns a list of nodes wher
 Nodes can be in any order. Any valid property name is a valid node. Circular dependencies throw an error.
 
 ```javascript
-var solve = require('dependency-solver').solve;
+var { solve } = require('dependency-solver');
 
 var graph = {
     'A': ['B', 'C', 'F'],
     'B': ['C', 'D'],
-    'C': ['D', 'E'],
-    'F': ['E']
+    'F': ['E'],
+    'C': ['D', 'E']
 }
 
 solve(graph);
 // -> [ 'D', 'E', 'C', 'B', 'F', 'A' ]
+```
+
+You can also compute how many nodes depend on a particular node and dependency lines between nodes.
+
+```javascript
+var { getEdges, getInDegree } = require('dependency-solver');
+
+var graph = {
+    'A': ['B', 'C', 'F'],
+    'B': ['C', 'D'],
+    'F': ['E'],
+    'C': ['D', 'E']
+}
+
+getInDegree(graph);
+// -> { 'B': 1, 'A': 0, 'C': 2, 'F': 1, 'D': 2, 'E': 2 }
+
+getEdges(graph);
+// -> [ [ 'A', 'B' ], [ 'A', 'C' ], [ 'A', 'F' ], [ 'B', 'C' ], [ 'B', 'D' ], [ 'F', 'E' ], [ 'C', 'D' ], [ 'C', 'E' ] ]
 ```
 
 ## License
