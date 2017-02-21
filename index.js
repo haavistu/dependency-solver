@@ -1,12 +1,12 @@
 module.exports.solve          = solve;
-module.exports.getInDegree    = getInDegree;
-module.exports.getEdges       = getEdges;
 module.exports.addMissingKeys = addMissingKeys;
+module.exports.getEdges       = getEdges;
+module.exports.getInDegree    = getInDegree;
 
 function solve(g) {
     let graph    = addMissingKeys(g);
     let edges    = getEdges(graph);
-    let inDegree = getInDegree(graph, edges);
+    let inDegree = getInDegree(graph);
 
     // Create a queue and enqueue vertices with in-degree of 0
     let queue    = []; 
@@ -47,20 +47,17 @@ function solve(g) {
     }
 }
 
-function getInDegree(graph, edges) {
-    // Creating a map to store in-degrees of all vertices
-    let inDegree = {};
-
+function addMissingKeys(graph) {
+    // Add all the missing keys to the graph as nodes with no in-degrees
     for(let key in graph) {
-        inDegree[key] = 0;
+        for(let [index, value] of graph[key].entries()) {
+            if(graph[value] === undefined) {
+                graph[value] = [];
+            }
+        }
     }
 
-    // Traverse the edges list and increase in-degrees per
-    for(let [src, dest] of edges) {
-        inDegree[dest]++;
-    }
-
-    return inDegree;
+    return graph;
 }
 
 function getEdges(graph) {
@@ -77,15 +74,18 @@ function getEdges(graph) {
     return edges;
 }
 
-function addMissingKeys(graph) {
-    // Add all the missing keys to the graph as nodes with no in-degrees
+function getInDegree(graph) {
+    // Creating a map to store in-degrees of all vertices
+    let inDegree = {};
+
     for(let key in graph) {
-        for(let [index, value] of graph[key].entries()) {
-            if(graph[value] === undefined) {
-                graph[value] = [];
-            }
+        for(let indeg of graph[key]) {
+            // Traverse the graph and fill in-degrees. Since complete graph has keys
+            // with no in-degrees, add them as nodes with 0 in-degrees
+            inDegree[indeg] = inDegree[indeg] === undefined ? 1 : ++inDegree[indeg];
+            inDegree[key]   = inDegree[key] || 0;
         }
     }
 
-    return graph;
+    return inDegree;
 }
