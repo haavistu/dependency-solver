@@ -1,7 +1,10 @@
-module.exports.solve          = solve;
-module.exports.addMissingKeys = addMissingKeys;
-module.exports.getEdges       = getEdges;
-module.exports.getInDegree    = getInDegree;
+module.exports.solve              = solve;
+module.exports.addMissingKeys     = addMissingKeys;
+module.exports.getEdges           = getEdges;
+module.exports.getInDegree        = getInDegree;
+// Alternative domain-specific aliases
+module.exports.getDependencyLines = getEdges;
+module.exports.getDependedBy      = getInDegree;
 
 function solve(g) {
     let graph    = addMissingKeys(g);
